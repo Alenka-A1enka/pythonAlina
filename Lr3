@@ -1,0 +1,24 @@
+import math
+print('Укажите начало интервала (целое число): ')
+a = int(input())
+print('Укажите конец интервала (целое число): ')
+b = int(input())
+print('Таблица значений функции f(x) \
+\n ________________')
+print('|   x  |   y    |')
+
+#подсчет значений функции и вывод 
+for x in range(a, b + 1):
+    for i in range(2):
+        if i == 1:
+            x = x + 0.5
+        if -10 <= x and x <= -6:
+            y = math.sqrt(-x ** 2 - 16 * x - 60) -2
+        elif -6 < x and x <= 2:
+            y = 0.5 * x + 1
+        elif 2 < x and x <= 6:
+            y = 0
+        else:
+            y = (x - 6)**2
+        print('|' + '{0:.1f}'.format(x).center(6) +
+              '|', '{0:.3f}'.format(y).ljust(7) + '|')
