@@ -1,0 +1,39 @@
+import math
+print('Укажите начало интервала (целое число): ')
+a = int(input())
+print('Укажите конец интервала (целое число): ')
+b = int(input())
+dx = 0
+while True:
+    print('Введите шаг (0,25; 0.5; 1.0): ')
+    dx = float(input())
+    if dx == 0.25 or dx == 0.5 or dx == 1.0:
+        break
+    else: 
+        print('Неправильный формат данных')
+print('Таблица значений функции f(x) \
+\n ________________')
+print('|   x  |   y    |')
+
+if dx == 0.25:
+    index = 4
+if dx == 0.5:
+    index = 2
+if dx == 1.0:
+    index = 1
+#подсчет значений функции и вывод 
+for x in range(a, b + 1):
+    for i in range(index):
+        if i == 1:
+            x = x + dx
+        if -10 <= x and x <= -6:
+            y = math.sqrt(-x ** 2 - 16 * x - 60) -2
+        elif -6 < x and x <= 2:
+            y = 0.5 * x + 1
+        elif 2 < x and x <= 6:
+            y = 0
+        else:
+            y = (x - 6)**2
+        print('|' + '{0:.1f}'.format(x).center(6) +
+              '|', '{0:.3f}'.format(y).ljust(7) + '|')
+
